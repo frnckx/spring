@@ -6,6 +6,8 @@ import hu.helixlab.spring.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/books")
 public class BookRestController {
@@ -18,10 +20,7 @@ public class BookRestController {
     public Book findById(@PathVariable("id") int id) {
 
         return bookService.findById(id);
-
-
     }
-
 
     @RequestMapping(/*value = "/books"*/ method = RequestMethod.GET)
     public Book getTestBook() {
@@ -44,14 +43,13 @@ public class BookRestController {
     public void deleteBookById(@PathVariable("id") int id) {
         bookService.deleteById(id);
     }
-    @RequestMapping(value = "/books/{id}", method = RequestMethod.PUT)
+ /*   @RequestMapping(value = "/books/{id}", method = RequestMethod.PUT)
     public Book updateBookById(@PathVariable ("id") int id, @RequestBody Book book){
-
-
-
     bookService.updateBookById(book);
 
     }
 
-
+//public Iterable<Book> getAll(){
+  //      BookRepository.findAll(); }
+*/
 }
